@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'Dashboard/css/Responsive Admin Dashboard V.1.1.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} BITA Trade Dashboard {% endblock %}</title>
+</head>
+<body>
+    <!-- navbar -->
+    <nav>
+        <div class="container">
+            <img src="{% static 'assets/images/BITA.png' %}" class="logo" alt="logo">
+            <div class="search-bar">
+                <span class="material-icons-sharp">search</span>
+                <input type="search" placeholder="Search">
+            </div>
+            <div class="profile-area">
+                <div class="theme-btn">
+                    <span class="material-icons-sharp active">light_mode</span>
+                    <span class="material-icons-sharp">dark_mode</span>
+                </div>
+                <div class="profile">
+                    <div class="profile-photo">
+                        <img src="{% static 'Dashboard/img/profile-1.png'%}" alt="profile1">
+                    </div>
+                    <h5>{{ user.username }}</h5>
+                </div>
+                <button id="menu-btn">
+                    <span class="material-icons-sharp">menu</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- main -->
+
+    <main>
+
+         <!-- aside -->
+        <aside>
+            <button id="close-btn">
+                <span class="material-icons-sharp">close</span>
+            </button>
+            <div class="sidebar">
+                <a href="/Dashboard" class="active">
+                    <span class="material-icons-sharp">dashboard</span>
+                    <h4>Dashboard</h4>
+                </a>
+                
+                <a>
+                    <span class="material-icons-sharp">account_balance_wallet
+                        
+                    </span>
+                    <h4>
+                        <details style="font-style:2px">
+                            <h3>USD: {{usdt.solde}}$</h3>
+                        </details>
+                    </h4>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">payment</span>
+                    <h4>Transactions</h4>
+                </a>
+                <a href="mailto:admin@gmail.com">
+                    <span class="material-icons-sharp">insert_comment</span>
+                    <h4>Mail to Admin</h4>
+                </a>
+                <a href="/logout">
+                    <span class="material-icons-sharp">logout</span>
+                    <h4>Logout</h4>
+                </a>
+            </div>
+            <div class="updates">
+                <span class="material-icons-sharp">update</span>
+                <h4>Mises à jour disponibles</h4>
+                <small>Mises à jour de sécurité</small>
+                <small>Mises à jour General</small>
+                <a href="#">Mettre à jour maintenant</a>
+
+            </div>
+
+        </aside>
+
+         <!-- section middle -->
+        <section class="middle dash">
+            <div class="header">
+                <h1>Transactions</h1>
+                <input type="date">
+            </div>
+            <div class="cards">
+                <!-- card 1 -->
+                <a href="/payment">
+                <div class="card">
+                    <div class="top">
+                       
+                    </div>
+                    <div class="middle">
+                        
+                        <h1>Ajouter des Fonds</h1>
+                        <div class="chip">
+                          <img src="{% static 'Dashboard/img/card chip.png'%}" class="chip" alt="card-chip">
+                        </div>
+                    </div>
+                    <div class="bottom">
+                        
+                        
+                       
+                    </div>
+                </div>
+            </a>
+                <!-- card 2 -->
+                
+                <div class="card">
+                    <div class="top">
+                       
+                    </div>
+                <a href="/payment"> 
+                    <div class="middle">
+                        
+                        <h1 style="color:white">Retirer des Fonds</h1>
+                        <div class="chip">
+                          <img src="{% static 'Dashboard/img/card chip.png'%}" class="chip" alt="card-chip">
+                        </div>
+                    </div>
+                </a>
+                <div class="bottom">
+                        
+                        
+                       
+                </div>
+                </div>
+               
+            </div>
+            
+
+        </section>
+
+    </main>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.0/chart.min.js" integrity="sha512-R60W3LgKdvvfwbGbqKusRu/434Snuvr9/Flhtoq9cj1LQ9P4HFKParULqOCAisHk/J4zyaEWWjiWIMuP13vXEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <script src="{% static 'Dashboard/js/Responsive Admin Dashboard V.1.1.js'%}"></script>
+
+</body> 
+</html>

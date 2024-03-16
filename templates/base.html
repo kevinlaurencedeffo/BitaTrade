@@ -1,0 +1,1105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BITA Trade</title>
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="{% static 'favicon.svg' %}" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="{% static 'sweetalert2/dist/sweetalert2.min.css' %}">
+    <script src="{% static 'sweetalert2/dist/sweetalert2.min.js' %}"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- 
+    - #HEADER
+  -->
+  <script>
+    Swal.fire("Bienvenu sur BITA Trade");
+  </script>
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#" class="logo">
+        <img src="{% static 'assets/images/BITA.png'%}" width="82" height="82" alt="logo">
+        BITA Trade
+      </a>
+
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link" data-nav-link>Acceuil</a>
+          </li>
+          <li class="navbar-item">
+            <a href="#comment" class="navbar-link" data-nav-link>Comment Ca Marche</a>
+          </li>
+          <li class="navbar-item">
+            <a href="#about" class="navbar-link" data-nav-link>A Propos</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#contact" class="navbar-link" data-nav-link>Contacts</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#help" class="navbar-link" data-nav-link>Aide</a>
+          </li>
+
+        </ul>
+      </nav>
+
+      <button class="nav-toggle-btn" aria-label="Toggle menu" data-nav-toggler>
+        <span class="line line-1"></span>
+        <span class="line line-2"></span>
+        <span class="line line-3"></span>
+      </button>
+
+      <a href="/login" class="btn btn-outline">Porte Feuille</a>
+
+    </div>
+  </header>
+
+
+
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="section hero" aria-label="hero" data-section>
+        <div class="container">
+
+          <div class="hero-content">
+
+            <h1 class="h1 hero-title">Achetez et vendez des actifs numériques sur BITA Trade.</h1>
+
+            <p class="hero-text">
+            BITA Trade est le moyen le plus simple, le plus sûr et le plus rapide d'acheter et de vendre des crypto-actifs.
+            </p>
+
+            <a href="/login" class="btn btn-primary">Commencer</a>
+
+          </div>
+
+          <figure class="hero-banner">
+            <img src="{% static 'assets/images/hero-banner.png' %}" width="570" height="448" alt="hero banner" class="w-100">
+          </figure>
+
+        </div>
+      </section>
+      <!-- 
+        - #TREND
+      -->
+
+      <section class="section trend" aria-label="crypto trend" data-section>
+        <div class="container">
+
+          <div class="trend-tab">
+
+            <ul class="tab-nav">
+
+              <li>
+                <button class="tab-btn active">Crypto</button>
+              </li>
+
+              <li>
+                <button class="tab-btn">DeFi</button>
+              </li>
+
+              <li>
+                <button class="tab-btn">BSC</button>
+              </li>
+
+              <li>
+                <button class="tab-btn">NFT</button>
+              </li>
+
+              <li>
+                <button class="tab-btn">Metaverse</button>
+              </li>
+
+              <li>
+                <button class="tab-btn">Polkadot</button>
+              </li>
+
+              <li>
+                <button class="tab-btn">Solana</button>
+              </li>
+
+              <li>
+                <button class="tab-btn">Opensea</button>
+              </li>
+
+              <li>
+                <button class="tab-btn">Marketplace</button>
+              </li>
+
+            </ul>
+
+            <ul class="tab-content">
+
+              <li>
+                <div class="trend-card">
+
+                  <div class="card-title-wrapper">
+                    <img src="{% static 'assets/images/coin-1.svg'%}" width="24" height="24" alt="bitcoin logo">
+
+                    <a href="#" class="card-title">
+                      Bitcoin <span class="span">BTC/USD</span>
+                    </a>
+                  </div>
+
+                  <data class="card-value" value="46168.95">USD {{ crp.btc.open }}</data>
+
+                  <div class="card-analytics">
+                    <data class="current-price" value="36641.20">{{ crp.btc.open  }}</data>
+
+                    <div class="badge red">{{ crp.btc.percentage  }}%</div>
+                  </div>
+
+                </div>
+              </li>
+
+              <li>
+                <div class="trend-card active">
+
+                  <div class="card-title-wrapper">
+                    <img src="{% static 'assets/images/coin-2.svg' %}" width="24" height="24" alt="ethereum logo">
+
+                    <a href="#" class="card-title">
+                      Ethereum <span class="span">ETH/USD</span>
+                    </a>
+                  </div>
+
+                  <data class="card-value" value="3480.04">USD {{crp.eth.open}}</data>
+
+                  <div class="card-analytics">
+                    <data class="current-price" value="36641.20">{{crp.eth.open}}</data>
+
+                    <div class="badge green">{{crp.eth.percentage}}%</div>
+                  </div>
+
+                </div>
+              </li>
+
+              <li>
+                <div class="trend-card">
+
+                  <div class="card-title-wrapper">
+                    <img src="{% static 'assets/images/coin-3.svg' %}" width="24" height="24" alt="tether logo">
+
+                    <a href="#" class="card-title">
+                      Tether <span class="span">USDT/USD</span>
+                    </a>
+                  </div>
+
+                  <data class="card-value" value="1.00">USD 1.00</data>
+
+                  <div class="card-analytics">
+                    <data class="current-price" value="36641.20">1.00</data>
+
+                    <div class="badge red">-0.01%</div>
+                  </div>
+
+                </div>
+              </li>
+
+              <li>
+                <div class="trend-card">
+
+                  <div class="card-title-wrapper">
+                    <img src="{% static 'assets/images/coin-4.svg'%}" width="24" height="24" alt="bnb logo">
+
+                    <a href="#" class="card-title">
+                      BNB <span class="span">BNB/USD</span>
+                    </a>
+                  </div>
+
+                  <data class="card-value" value="443.56">USD {{crp.bnb.open}}</data>
+
+                  <div class="card-analytics">
+                    <data class="current-price" value="36641.20">{{crp.bnb.open}}</data>
+
+                    <div class="badge red">{{crp.bnb.percentage}}%</div>
+                  </div>
+
+                </div>
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+      </section>
+      <!-- 
+        - #MARKET
+      -->
+      <section class="section market" aria-label="market update" data-section>
+        <div class="container">
+
+          <div class="title-wrapper">
+            <h2 class="h2 section-title">Market Update</h2>
+
+            <a href="#" class="btn-link">See All Coins</a>
+          </div>
+
+          <div class="market-tab">
+
+            <ul class="tab-nav">
+
+              <li>
+                <button class="tab-btn active">View All</button>
+              </li>
+
+              <li>
+                <button class="tab-btn">Metaverse</button>
+              </li>
+
+              <li>
+                <button class="tab-btn">Entertainment</button>
+              </li>
+
+              <li>
+                <button class="tab-btn">Energy</button>
+              </li>
+
+              <li>
+                <button class="tab-btn">NFT</button>
+              </li>
+
+              <li>
+                <button class="tab-btn">Gaming</button>
+              </li>
+
+              <li>
+                <button class="tab-btn">Music</button>
+              </li>
+
+            </ul>
+
+            <table class="market-table">
+
+              <thead class="table-head">
+
+                <tr class="table-row table-title">
+
+                  <th class="table-heading"></th>
+
+                  <th class="table-heading" scope="col">#</th>
+
+                  <th class="table-heading" scope="col">Name</th>
+
+                  <th class="table-heading" scope="col">Last Price</th>
+
+                  <th class="table-heading" scope="col">24h %</th>
+
+                  <th class="table-heading" scope="col">Market Cap</th>
+
+                  <th class="table-heading" scope="col">Last 7 Days</th>
+
+                  <th class="table-heading"></th>
+
+                </tr>
+
+              </thead>
+
+              <tbody class="table-body">
+
+                <tr class="table-row">
+
+                  <td class="table-data">
+                    <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
+                      <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
+                    </button>
+                  </td>
+
+                  <th class="table-data rank" scope="row">1</th>
+
+                  <td class="table-data">
+                    <div class="wrapper">
+                      <img src="{% static 'assets/images/coin-1.svg'%}" width="20" height="20" alt="Bitcoin logo" class="img">
+
+                      <h3>
+                        <a href="#" class="coin-name">Bitcoin <span class="span">BTC</span></a>
+                      </h3>
+                    </div>
+                  </td>
+
+                  <td class="table-data last-price">${{crp.btc.open}}</td>
+
+                  <td class="table-data last-update green">{{crp.btc.percentage}}%</td>
+
+                  <td class="table-data market-cap">$880,423,640,582</td>
+
+                  <td class="table-data">
+                    <img src="{% static 'assets/images/chart-1.svg' %}" width="100" height="40" alt="profit chart" class="chart">
+                  </td>
+
+                  <td class="table-data">
+                    <button class="btn btn-outline">Trade</button>
+                  </td>
+
+                </tr>
+
+                <tr class="table-row">
+
+                  <td class="table-data">
+                    <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
+                      <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
+                    </button>
+                  </td>
+
+                  <th class="table-data rank" scope="row">2</th>
+
+                  <td class="table-data">
+                    <div class="wrapper">
+                      <img src="{% static 'assets/images/coin-2.svg' %}" width="20" height="20" alt="Ethereum logo" class="img">
+
+                      <h3>
+                        <a href="#" class="coin-name">Ethereum <span class="span">ETH</span></a>
+                      </h3>
+                    </div>
+                  </td>
+
+                  <td class="table-data last-price">${{crp.eth.open}}</td>
+
+                  <td class="table-data last-update red">{{crp.eth.percentage}}%</td>
+
+                  <td class="table-data market-cap">$580,423,640,582</td>
+
+                  <td class="table-data">
+                    <img src="{% static 'assets/images/chart-2.svg'%}" width="100" height="40" alt="loss chart" class="chart">
+                  </td>
+
+                  <td class="table-data">
+                    <button class="btn btn-outline">Trade</button>
+                  </td>
+
+                </tr>
+
+                <tr class="table-row">
+
+                  <td class="table-data">
+                    <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
+                      <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
+                    </button>
+                  </td>
+
+                  <th class="table-data rank" scope="row">3</th>
+
+                  <td class="table-data">
+                    <div class="wrapper">
+                      <img src="{% static 'assets/images/coin-3.svg'%}" width="20" height="20" alt="Tether logo" class="img">
+
+                      <h3>
+                        <a href="#" class="coin-name">Tether <span class="span">USDT/USD</span></a>
+                      </h3>
+                    </div>
+                  </td>
+
+                  <td class="table-data last-price">$1</td>
+
+                  <td class="table-data last-update green">+1.45%</td>
+
+                  <td class="table-data market-cap">$423,640,582</td>
+
+                  <td class="table-data">
+                    <img src="{% static 'assets/images/chart-1.svg'%}" width="100" height="40" alt="profit chart" class="chart">
+                  </td>
+
+                  <td class="table-data">
+                    <button class="btn btn-outline">Trade</button>
+                  </td>
+
+                </tr>
+
+                <tr class="table-row">
+
+                  <td class="table-data">
+                    <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
+                      <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
+                    </button>
+                  </td>
+
+                  <th class="table-data rank" scope="row">4</th>
+
+                  <td class="table-data">
+                    <div class="wrapper">
+                      <img src="{% static 'assets/images/coin-4.svg'%}" width="20" height="20" alt="BNB logo" class="img">
+
+                      <h3>
+                        <a href="#" class="coin-name">BNB <span class="span">BNB/USD</span></a>
+                      </h3>
+                    </div>
+                  </td>
+
+                  <td class="table-data last-price">${{crp.bnb.open}}</td>
+
+                  <td class="table-data last-update red">{{crp.bnb.percentage}}%</td>
+
+                  <td class="table-data market-cap">$20,423,640,582</td>
+
+                  <td class="table-data">
+                    <img src="{% static 'assets/images/chart-2.svg'%}" width="100" height="40" alt="loss chart" class="chart">
+                  </td>
+
+                  <td class="table-data">
+                    <button class="btn btn-outline">Trade</button>
+                  </td>
+
+                </tr>
+
+                <tr class="table-row">
+
+                  <td class="table-data">
+                    <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
+                      <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
+                    </button>
+                  </td>
+
+                  <th class="table-data rank" scope="row">5</th>
+
+                  <td class="table-data">
+                    <div class="wrapper">
+                      <img src="{% static 'assets/images/coin-5.svg'%}" width="20" height="20" alt="Solana logo" class="img">
+
+                      <h3>
+                        <a href="#" class="coin-name">Solana <span class="span">SOL</span></a>
+                      </h3>
+                    </div>
+                  </td>
+
+                  <td class="table-data last-price">${{crp.sol.open}}</td>
+
+                  <td class="table-data last-update green">{{crp.sol.percentage}}%</td>
+
+                  <td class="table-data market-cap">$880,423,640,582</td>
+
+                  <td class="table-data">
+                    <img src="{% static 'assets/images/chart-1.svg'%}" width="100" height="40" alt="profit chart" class="chart">
+                  </td>
+
+                  <td class="table-data">
+                    <button class="btn btn-outline">Trade</button>
+                  </td>
+
+                </tr>
+
+                <tr class="table-row">
+
+                  <td class="table-data">
+                    <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
+                      <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
+                    </button>
+                  </td>
+
+                  <th class="table-data rank" scope="row">6</th>
+
+                  <td class="table-data">
+                    <div class="wrapper">
+                      <img src="{% static 'assets/images/coin-6.svg'%}" width="20" height="20" alt="XRP logo" class="img">
+
+                      <h3>
+                        <a href="#" class="coin-name">XRP <span class="span">XRP</span></a>
+                      </h3>
+                    </div>
+                  </td>
+
+                  <td class="table-data last-price">${{crp.xrp.open}}</td>
+
+                  <td class="table-data last-update red">{{crp.xrp.percentage}}%</td>
+
+                  <td class="table-data market-cap">$80,423,640,582</td>
+
+                  <td class="table-data">
+                    <img src="{% static 'assets/images/chart-2.svg'%}" width="100" height="40" alt="loss chart" class="chart">
+                  </td>
+
+                  <td class="table-data">
+                    <button class="btn btn-outline">Trade</button>
+                  </td>
+
+                </tr>
+
+                <tr class="table-row">
+
+                  <td class="table-data">
+                    <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
+                      <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
+                    </button>
+                  </td>
+
+                  <th class="table-data rank" scope="row">7</th>
+
+                  <td class="table-data">
+                    <div class="wrapper">
+                      <img src="{% static 'assets/images/coin-7.svg'%}" width="20" height="20" alt="Cardano logo" class="img">
+
+                      <h3>
+                        <a href="#" class="coin-name">Cardano <span class="span">ADA</span></a>
+                      </h3>
+                    </div>
+                  </td>
+
+                  <td class="table-data last-price">${{crp.car.open}}</td>
+
+                  <td class="table-data last-update green">{{crp.car.percentage}}%</td>
+
+                  <td class="table-data market-cap">$123,640,582</td>
+
+                  <td class="table-data">
+                    <img src="{% static 'assets/images/chart-1.svg'%}" width="100" height="40" alt="profit chart" class="chart">
+                  </td>
+
+                  <td class="table-data">
+                    <button class="btn btn-outline">Trade</button>
+                  </td>
+
+                </tr>
+
+                <tr class="table-row">
+
+                  <td class="table-data">
+                    <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
+                      <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
+                      <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
+                    </button>
+                  </td>
+
+                  <th class="table-data rank" scope="row">8</th>
+
+                  <td class="table-data">
+                    <div class="wrapper">
+                      <img src="{% static 'assets/images/coin-8.svg'%}" width="20" height="20" alt="Avalanche logo" class="img">
+
+                      <h3>
+                        <a href="#" class="coin-name">Avalanche <span class="span">AVAX</span></a>
+                      </h3>
+                    </div>
+                  </td>
+
+                  <td class="table-data last-price">${{crp.ava.open}}</td>
+
+                  <td class="table-data last-update green">{{crp.ava.open}}%</td>
+
+                  <td class="table-data market-cap">$880,423,640,582</td>
+
+                  <td class="table-data">
+                    <img src="{% static 'assets/images/chart-1.svg'%}" width="100" height="40" alt="profit chart" class="chart">
+                  </td>
+
+                  <td class="table-data">
+                    <button class="btn btn-outline">Trade</button>
+                  </td>
+
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </div>
+      </section>
+      <!-- 
+        - #INSTRUCTION
+      -->
+
+      <section id="comment" class="section instruction" aria-label="instruction" data-section>
+        <div class="container">
+          <h2 class="h2 section-title">Comment ça fonctionne ?</h2>
+          <p class="section-text">
+            Voici un résumé de 04 étapes pour comprendre comment fonctionne BITA Trade, une plateforme de trading populaire.
+          </p>
+          <ul class="instruction-list">
+
+            <li>
+              <div class="instruction-card">
+
+                <figure class="card-banner">
+                  <img src="{% static 'assets/images/instruction-1.png'%}" width="96" height="96" loading="lazy" alt="Step 1"
+                    class="img">
+                </figure>
+
+                <p class="card-subtitle">Etape 1</p>
+
+                <h3 class="h3 card-title">S'informer</h3>
+
+                <p class="card-text">
+                  Informez-vous sur le trading et les marchés financiers,
+                  Renseignez-vous sur les différents types de marchés et de produits financiers disponibles pour le trading.
+                </p>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="instruction-card">
+
+                <figure class="card-banner">
+                  <img src="{% static 'assets/images/instruction-2.png'%}" width="96" height="96" loading="lazy" alt="Step 2"
+                    class="img">
+                </figure>
+
+                <p class="card-subtitle">Etape 2</p>
+
+                <h3 class="h3 card-title">S'inscrire</h3>
+
+                <p class="card-text">
+                  Choisissez BITA Trade comme plateforme de trading
+                  c'est une plateforme d’échange de cryptomonnaies qui propose une variété de paires de trading.
+                </p>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="instruction-card">
+
+                <figure class="card-banner">
+                  <img src="{% static 'assets/images/instruction-3.png'%}" width="96" height="96" loading="lazy" alt="Step 3"
+                    class="img">
+                </figure>
+
+                <p class="card-subtitle">Etape 3</p>
+
+                <h3 class="h3 card-title">Commencer le Trading</h3>
+
+                <p class="card-text">
+                  Utilisez un compte de trading démo pour vous entraîner et vous familiariser avec l’interface.
+                  Commencez à trader avec de petits montants pour minimiser les risques et évaluer votre stratégie.                </p>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="instruction-card">
+
+                <figure class="card-banner">
+                  <img src="{% static 'assets/images/instruction-4.png'%}" width="96" height="96" loading="lazy" alt="Step 4"
+                    class="img">
+                </figure>
+
+                <p class="card-subtitle">Etape 4</p>
+
+                <h3 class="h3 card-title">Gagner de l'Argent</h3>
+
+                <p class="card-text">
+                  Élaborez une stratégie de trading en tenant compte de votre personnalité et de vos objectifs pour booster vos gains.                </p>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+      <!-- 
+        - #ABOUT
+      -->
+      <section id="about" class="section about" aria-label="about" data-section>
+        <div class="container">
+
+          <figure class="about-banner">
+            <img src="{% static 'assets/images/about-banner.png'%}" width="748" height="436" loading="lazy" alt="about banner"
+              class="w-100">
+          </figure>
+
+          <div class="about-content">
+
+            <h2 class="h2 section-title">Qu'est-ce que BITA Trade ?</h2>
+
+            <p class="section-text">
+              Nous sommes spécialisée dans la formation au trading, accompagner les investisseurs sur les marchés financiers,
+              ou encore agir en tant que 
+              courtier en ligne ou fonds d’investissement. L’objectif commun est de générer des profits en
+              investissant sur des marches financiers.
+            </p>
+
+            <ul class="section-list">
+
+              <li class="section-item">
+                <div class="title-wrapper">
+                  <ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon>
+
+                  <h3 class="h3 list-title">Voir les prix des cryptomonnaies en temps réel.</h3>
+                </div>
+
+                <p class="item-text">
+                  Découvrez une variété de transactions sur Bitcost. Vous pouvez utiliser différents types
+                   de transactions de cryptomonnaies 
+                  telles que le trading au comptant, le trading à terme, le P2P, le Staking, le Mining et la marge.
+                </p>
+              </li>
+
+              <li class="section-item">
+                <div class="title-wrapper">
+                  <ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon>
+
+                  <h3 class="h3 list-title">Achetez et vendez des BTC, ETH, XRP, OKB, etc...</h3>
+                </div>
+
+                <p class="item-text">
+                  Apres inscription sur la plateforme,
+                  Déposez des fonds,
+                  Choisissez une crypto et placez un ordre d’achat ou de vente,
+                  Validez la transaction. 
+                </p>
+              </li>
+
+            </ul>
+
+            <a href="#" class="btn btn-primary">Explorez davantage</a>
+
+          </div>
+
+        </div>
+      </section>
+      <!-- 
+
+        #Contacts
+      -->
+      <section id="contact" class="section about" aria-label="contact" data-section>
+        <div class="container">
+
+          <div class="">
+
+            <h2 class="h2 section-title">Contactez-nous</h2>
+           
+              <form>
+                  <input type="text" placeholder="Nom" name="username">
+                  <input type="email" placeholder="Email" name="email">
+                  <input type="tel" placeholder="Telephone" name="telephone">
+                  <textarea>
+
+                  </textarea>
+                  <button id="pri">Envoyer un message</button>
+              </form>
+          
+
+          </div>
+
+        </div>
+      </section>
+      <!--
+        - #APP
+      -->
+
+      <section class="section app" id="help" aria-label="app" data-section>
+        <div class="container">
+
+          <div class="app-content">
+
+            <h2 class="h2 section-title">Libérez votre argent et investissez en toute confiance</h2>
+
+            <p class="section-text">
+              Avec BITA Trade, vous pouvez être sûr que vos compétences en trading sont adaptées.
+            </p>
+
+            <ul class="section-list">
+
+              <li class="section-item">
+                <div class="title-wrapper">
+                  <ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon>
+
+                  <h3 class="h3 item-title">Achetez, vendez et échangez où que vous soyez</h3>
+                </div>
+
+                <p class="item-text">
+                  Gérez vos avoirs depuis votre appareil mobile
+                </p>
+              </li>
+
+              <li class="section-item">
+                <div class="title-wrapper">
+                  <ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon>
+
+                  <h3 class="h3 item-title">Prenez le contrôle de votre richesse</h3>
+                </div>
+
+                <p class="item-text">
+                  Soyez assuré que vous (et vous seul) avez accès à vos fonds.
+                </p>
+              </li>
+
+            </ul>
+
+            <div class="app-wrapper">
+              <a href="#">
+                <img src="{% static 'assets/images/googleplay.png'%}" width="135" height="40" loading="lazy"
+                  alt="get it on google play">
+              </a>
+
+              <a href="#">
+                <img src="{% static 'assets/images/appstore.png'%}" width="120" height="40" loading="lazy"
+                  alt="Téléchargez sur l'App Store">
+              </a>
+            </div>
+
+          </div>
+
+          <div class="app-banner">
+            <img src="{% static 'assets/images/app-banner.png'%}" width="618" height="526" loading="lazy" alt="app banner"
+              class="w-100">
+
+            <span class="span">Scannez pour télécharger</span>
+          </div>
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+
+    <div class="footer-top" data-section>
+      <div class="container">
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">
+            <img src="{% static 'assets/images/BITA.png'%}" width="60" height="60" alt="logo">
+            BITA Trade
+          </a>
+
+          <h2 class="footer-title">Discutons ! 🤙</h2>
+
+          <a href="tel:+123456789101" class="footer-contact-link">+12 345 678 9101</a>
+
+          <a href="contact.Bitatrade@gmail.com" class="footer-contact-link">contact.Bitatrade@gmail.com</a>
+
+          <address class="footer-contact-link">
+            1410 Avenue de la Mer, 11210 Port La Nouvelle, France
+          </address>
+
+        </div>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Produits</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Spot</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Inverse perpétuel</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">USDT perpétuel</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Echange</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Launchpad</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Binance Pay</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Services</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Acheter des crypto-monnaies</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Marches</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Frais de transaction</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Programme d'affiliation</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Programme de parrainage</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">API</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Support</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Bybit Learn</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Help Center</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">User Feedback</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Submit a request</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">API Documentation</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Trading Rules</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">A Propos</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">About Bybit</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Authenticity Check</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Careers</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Business Contacts</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Blog</a>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2024 BITA Trade All Rights Reserved
+        </p>
+
+        <ul class="social-list">
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+
+  </footer>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="{% static 'assets/js/script.js'%}" defer></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

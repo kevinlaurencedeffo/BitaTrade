@@ -1,0 +1,17 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>{% block title %} My Django App {% endblock %}</title>
+</head>
+<body>
+    {% block content %}
+    <div class="container mx-auto my-4 p-6 bg-gray-200">
+        <h1 class="text-3xl font-bold">Welcome to My Django App!</h1>
+        <p class="text-blue-200">This is a sample template using Tailwind CSS.</p>
+    </div>
+    {% endblock %}
+</body>
+</html>

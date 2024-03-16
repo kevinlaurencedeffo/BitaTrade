@@ -1,0 +1,46 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'sweetalert2/dist/sweetalert2.min.css' %}">
+    <script src="{% static 'sweetalert2/dist/sweetalert2.min.js' %}"></script>
+    <title>{% block title %} Register {% endblock %}</title>
+</head>
+<body>
+<div>
+<section id="" class="py-10 px-3 text-white">
+<div class="mt-6 flex  flex-col w-[400px] bg-gray-800 md:p-6 p-2 rounded-lg mx-auto">
+  <img src="{% static 'assets/images/BITA.png' %}" class="ml-32" width="150px" heigh="150px"/>
+
+  <div class="" >
+    <form class="flex flex-col"  method="post" action="{% url 'register' %}">
+        {% csrf_token %}
+        <script>
+          {% if message %}
+          Swal.fire(
+              {
+                icon: "{{message.icon}}",
+                title: "Register",
+                text: "{{message.msg}}",
+                confirmButtonText: "OK"
+        
+              }
+            );
+          {% endif %}
+          
+        </script>
+  <input type="text" class="mt-4 w-5xl"  placeholder="Your Username" name='username'/>
+  <input type="email" class="mt-4 w-5xl"  placeholder="Your Email Address" name='email'/>
+  <input type="tel" class="mt-4 w-5xl"  placeholder="Your Phone Number" name='telephone'/>
+  <input type="password" class="mt-4 w-5xl" placeholder="Your Password" name='password'/>
+    <button class="btn-primary mt-4 text-lg" type="submit" style="width:200px; margin-left:60px; ">Register</button>
+    <span class='ml-32 mt-4'>Deja un compte? <a href='/login' class='text-blue-600'>Login</a></span>
+    </form>
+</div>  
+</div>
+  </section>
+</div>
+</body>
+</html>
